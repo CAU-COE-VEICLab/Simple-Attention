@@ -6,6 +6,7 @@ The agricultural industry faces numerous challenges, including incomplete sensor
 
 ## Design of the Proposed *Simple-Attention Block(SIAB)*
 
+
 ## Design of the Proposed *Conv-Simpleformer Network(CS-Net)*
 
 
