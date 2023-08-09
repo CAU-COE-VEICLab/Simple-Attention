@@ -41,7 +41,7 @@ The quantitative comparison between models that have been applied more frequentl
 | Scenario 1 | U-Net | 512×512 | **13.4M** | **124.5G** | 88.7% | 97.9% |
 | Scenario 1 | DeepLab v3+ | 512×512 | 14.8M | 295.9G | 88.9% | 97.8% | 
 | Scenario 1 | SegNet | 512×512 | 31.9M | 174.9G | 83.8% | 96.5% | 
-| Scenario 1 | CS-Net | 512×512 | **17.9M** | **157.1G** | **89.7%** | **898.1%** | 
+| Scenario 1 | CS-Net | 512×512 | 17.9M | 157.1G | **89.7%** | **898.1%** | 
 | Scenario 2| U-Net | 800×600 | **13.4M** | **227.9G** | 83.7% | 99.0% |
 | Scenario 2 | DeepLab v3+ | 800×600 | 14.8M | 541.4G | 83.9% | 99.1% | 
 | Scenario 2 | SegNet | 800×600 | 31.9M | 318.8G | 80.4% | 98.8% | 
