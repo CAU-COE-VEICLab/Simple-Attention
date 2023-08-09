@@ -18,7 +18,7 @@ Although self-attention block(SEAB) effectively encodes spatial information and 
 **SIAB effectively solves the problem that the computational complexity of SEAB increases quadratically with the size of the input image**. In semantic segmentation tasks, the input image size is usually relatively large. Suppose the size of the input image is [Ci, Hi, Wi] = [3, 512, 512], kH=kW=3, and the input features of the third CS Module in the CS-Net encoder are [C, H, W] = [256, 128, 128]. The computational complexity *OmigaSIAB* of SIAB is 0.42 G, and the computational complexity *OmigaSEAB* of SEAB is 141.73 G. *`OmigaSEAB* is **337.5 times larger** than *OmigaSIAB`*, so **SIAB significantly reduces the demand for computational resources**.
 
 
-![Intro](figures/csmodule.png)
+![computationalcomplexity](figures/computationalcomplexity.png)
 
 
 ## Design of the Proposed *Conv-Simpleformer Network(CS-Net)*
@@ -27,6 +27,10 @@ Referring to the design idea of the classical Transformer module, to enhance the
 The overall architecture of CS-Net, is in the shape of a letter "V" and consists of two parts: an encoder and a decoder, which generate segmentation results end-to-end.
 
 CS-Net extracts the global representation and local features of the input image and retains the detailed features of the image through the combination of encoder and decoder, thus improving the accuracy and efficiency of image segmentation.
+
+![csmodule](figures/csmodule.png)
+
+![structure](figures/structure.png)
 
 ## Results
 To learn more detail please read our paper.
@@ -56,8 +60,10 @@ The results of the ablation experiments.
 | Scenario 2| 512×512 | 2 | 17.9M | 157.1G | **89.7%** | **98.1%** |
 
 The results of semantic segmentation.
+![results](figures/results.png)
 
 Visualization of the model output at different stages in the ablation experiment.
+![ablationexperiments](figures/ablationexperiments.png)
 
 
 ## Requirements
