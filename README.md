@@ -55,10 +55,10 @@ The results of the ablation experiments.
 | Experiment | Input size | Number head | #params | FLOPs | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
 | Baseline+CNN | 512×512 | - | 13.4M | 124.5G | 88.7% | 97.9% |
-| Scenario 1 | 512×512 | 2 | **11.8M** | **111.4G** | 88.0% | 97.3% | 
-| Scenario 1 | 512×512 | 2 | 13.6M | 129.3G | 34.6% | 74.9% | 
-| Scenario 1 | 512×512 | 2 | 19.7M | 175.1G | 49.9% | 81.7% | 
-| Scenario 2| 512×512 | 2 | 17.9M | 157.1G | **89.7%** | **98.1%** |
+| Baseline+SEAB | 512×512 | 2 | 13.6M | 129.3G | 34.6% | 74.9% | 
+| Baseline+SIAB | 512×512 | 2 |**11.8M** | **111.4G** | 88.0% | 97.3% | 
+| Baseline+CNN+SEAB | 512×512 | 2 | 19.7M | 175.1G | 49.9% | 81.7% | 
+| Baseline+CNN+SIAB | 512×512 | 2 | 17.9M | 157.1G | **89.7%** | **98.1%** |
 
 The results of semantic segmentation.
 ![results](figures/results.png)
