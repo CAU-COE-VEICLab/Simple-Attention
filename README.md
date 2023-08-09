@@ -78,4 +78,7 @@ You have to split your data into three folders: train/val/test. Each folder will
 ## Train CS-Net for your dataset in windows
 To train a CS-Net on your dataset from scratch, run: train.py
 
+## Train CS-Net for your dataset in Linux
+Coming soon.
+
 ## Citation
