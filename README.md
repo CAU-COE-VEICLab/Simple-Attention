@@ -73,7 +73,7 @@ Visualization of the model output at different stages in the ablation experiment
 - argparse \ numpy \ pillow \ opencv-python \ torchsummary \ pathlib \ matplotlib \ tensorboardX \ thop
 
 ## Preparing your data
-You have to split your data into three folders: train/val/test. Each folder will contain two sub-folders: Img and GT, which contain the png files for the images and their corresponding ground truths. The naming of these images is important, as the code to save the results temporarily to compute the 3D DSC, for example, is sensitive to their names.
+You have to split your data into three folders: train/val/test. Each folder will contain two sub-folders: images and masks, which contain the png files for the images and their corresponding ground truths. The naming of these images is important, as the code to save the results temporarily to compute the 3D DSC, for example, is sensitive to their names.
 
 ## Train CS-Net for your dataset
 
