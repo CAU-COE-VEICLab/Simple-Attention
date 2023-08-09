@@ -33,7 +33,8 @@ CS-Net extracts the global representation and local features of the input image 
 ![structure](figures/structure.png)
 
 ## Results
-To learn more detail please read our paper.
+**To learn more detail please read our paper**.
+
 The quantitative comparison between models that have been applied more frequently in agricultural semantic segmentation and the proposed model.
 | Test  | Model | Input size | #params | FLOPs | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
