@@ -15,7 +15,7 @@ Although self-attention block(SEAB) effectively encodes spatial information and 
 
 **Element-by-element computation in SEAB is redundant**, so we design an efficient and lightweight attention block called Simple-Attention Block (SIAB). **SIAB converts the `element-by-element calculation` operation of SEAB into `channel-by-channel and spatial convolution calculations`**
 
-**SIAB effectively solves the problem that the computational complexity of SEAB increases quadratically with the size of the input image**. In semantic segmentation tasks, the input image size is usually relatively large. Suppose the size of the input image is [Ci, Hi, Wi] = [3, 512, 512], kH=kW=3, and the input features of the third CS Module in the CS-Net encoder are [C, H, W] = [256, 128, 128]. The computational complexity *OmigaSIAB* of SIAB is 0.42 G, and the computational complexity *OmigaSEAB* of SEAB is 141.73 G. *`OmigaSEAB* is **337.5 times larger** than *OmigaSIAB`*, so **SIAB significantly reduces the demand for computational resources**.
+**SIAB effectively solves the problem that the computational complexity of SEAB increases quadratically with the size of the input image**. In semantic segmentation tasks, the input image size is usually relatively large. Suppose the size of the input image is [Ci, Hi, Wi] = [3, 512, 512], kH=kW=3, and the input features of the third CS Module in the CS-Net encoder are [C, H, W] = [256, 128, 128]. The computational complexity *OmigaSIAB* of SIAB is 0.42 G, and the computational complexity *OmigaSEAB* of SEAB is 141.73 G. *OmigaSEAB* is **337.5 times larger** than *OmigaSIAB*, so **SIAB significantly reduces the demand for computational resources**.
 
 
 ![computationalcomplexity](figures/computationalcomplexity.png)
