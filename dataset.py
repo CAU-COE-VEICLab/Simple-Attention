@@ -61,7 +61,7 @@ class SegDataset(Dataset):
     def __getitem__(self, i):
         name = self.names[i]
         label_path = os.path.join(self.labels_dir, name)
-        img_path = os.path.join(self.imgs_dir, name[:-3] + 'jpg')  #jpg or png
+        img_path = os.path.join(self.imgs_dir, name[:-3] + 'png')  #jpg or png
 
         image = cv2.imread(img_path)
         label = Image.open(label_path).convert('L')
