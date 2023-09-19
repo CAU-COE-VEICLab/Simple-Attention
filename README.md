@@ -115,7 +115,7 @@ Cross-datasets evaluation results for all control models in scenario 4.
 | MUNet | 512×512 | 76.3% | 95.6% | 
 | CS-Net | 512×512 | **79.3%** | **96.5%** | 
 
-![cross_dataset](figures/cross_dataset.png)
+![corss_dataset](figures/corss_dataset.png)
 
 ### Detail experiments
 **To learn more detail please read our paper**.
