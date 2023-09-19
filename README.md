@@ -43,14 +43,14 @@ The quantitative comparison between models that have been applied more frequentl
 Segmentation results for all models in scenario 1. Throughput was obtained on RTX 4090 GPU.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
-| Scenario 1 | U-Net | 512×512 | **13.4M** | **124.5G** | 156.02 | 34428 | 88.7% | 97.9% |
-| Scenario 1 | DeepLab v3+ | 512×512 | 14.8M | 295.9G | 135.60 | 34385 | 88.9% | 97.8% | 
-| Scenario 1 | SegNet | 512×512 | 31.9M | 174.9G | 143.61 | 34405 | 83.8% | 96.5% | 
+| Scenario 1 | U-Net | 512×512 | **13.4** | **124.5** | 156.02 | 34428 | 88.7% | 97.9% |
+| Scenario 1 | DeepLab v3+ | 512×512 | 14.8 | 295.9 | 135.60 | 34385 | 88.9% | 97.8% | 
+| Scenario 1 | SegNet | 512×512 | 31.9 | 174.9 | 143.61 | 34405 | 83.8% | 96.5% | 
 | Scenario 1 | Segmenter | 512×512 | 25.0 | 409.4 | 0.37 | 37219 | 17.9% | 71.6% | 
 | Scenario 1 | Segformer | 512×512 | 18.5 | 173.1 | 0.08 | 34058 | 42.7% | 80.4% | 
 | Scenario 1 | CPU-Net | 512×512 | 21.8 | 132.1 | 72.63 | 34514 | 82.5% | 95.1% | 
 | Scenario 1 | MUNet | 512×512 | 14.2M | 210.4 | 89.13 | 34313 | 88.5% | 97.7% | 
-| Scenario 1 | CS-Net | 512×512 | 17.9M | 157.1G | 123.14 | 5017 | **89.7%** | **98.1%** | 
+| Scenario 1 | CS-Net | 512×512 | 17.9 | 157.1 | 123.14 | 5017 | **89.7%** | **98.1%** | 
 
 
 ![Scenario1](figures/Scenario1.png)
@@ -58,28 +58,28 @@ Segmentation results for all models in scenario 1. Throughput was obtained on RT
 Segmentation results for all models in scenario 2.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
-| Scenario 2| U-Net | 800×600 | **13.4M** | **227.9G** | 30.72 | 35231 | 83.7% | 99.0% |
-| Scenario 2 | DeepLab v3+ | 800×600 | 14.8M | 541.4G | 39.24 | 35136 | 83.9% | 99.1% | 
-| Scenario 2 | SegNet | 800×600 | 31.9M | 318.8G | 28.7 | 35112 | 80.4% | 98.8% | 
+| Scenario 2| U-Net | 800×600 | **13.4** | **227.9** | 30.72 | 35231 | 83.7% | 99.0% |
+| Scenario 2 | DeepLab v3+ | 800×600 | 14.8 | 541.4 | 39.24 | 35136 | 83.9% | 99.1% | 
+| Scenario 2 | SegNet | 800×600 | 31.9 | 318.8 | 28.7 | 35112 | 80.4% | 98.8% | 
 | Scenario 2 | Segmenter | 512×512 | 25.0 | 409.4 | 1.39 | 37215 | 48.7% | 97.5% | 
 | Scenario 2 | Segformer | 512×512 | 18.5 | 173.1 | 0.06 | 34403 | 66.8% | 97.8% | 
 | Scenario 2 | CPU-Net | 800×600 | 21.8 | 241.5 | 10.72 | 35264 | 83.0% | 98.9% | 
 | Scenario 2 | MUNet | 800×600 | 14.2M | 385.1 | 14.31 | 35063 | 41.9% | 99.1% | 
-| Scenario 2 | CS-Net | 800×600 | 17.9M | 287.5G | 21.24 | 9011 | **84.2%** | **99.2%** | 
+| Scenario 2 | CS-Net | 800×600 | 17.9 | 287.5 | 21.24 | 9011 | **84.2%** | **99.2%** | 
 
 ![Scenario2](figures/Scenario2.png)
 
 Segmentation results for all models in scenario 3.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
-| Scenario 3 | U-Net | 672×376 | **13.4M** | **119.9G** | 169.31 | 34394 | 84.2% | 97.5% |
-| Scenario 3 | DeepLab v3+ | 672×376 | 14.8M | 284.9G | 140.80 | 34352 | 86.0% | 98.3% | 
-| Scenario 3 | SegNet | 672×376 | 31.9M | 167.4G | 142.70 | 34425 | 78.9% | 96.9% | 
+| Scenario 3 | U-Net | 672×376 | **13.4** | **119.9** | 169.31 | 34394 | 84.2% | 97.5% |
+| Scenario 3 | DeepLab v3+ | 672×376 | 14.8 | 284.9 | 140.80 | 34352 | 86.0% | 98.3% | 
+| Scenario 3 | SegNet | 672×376 | 31.9 | 167.4 | 142.70 | 34425 | 78.9% | 96.9% | 
 | Scenario 3 | Segmenter | 672×376 | 25.0 | 394.6 | 5.11 | 34860 | 47.2% | 94.4% | 
 | Scenario 3 | Segformer | 512×512 | 18.5 | 173.0 | 0.03 | 34058 | 48.5% | 94.6% | 
 | Scenario 3 | CPU-Net | 672×376 | 21.8 | 127.0 | 74.47 | 34480 | 77.6% | 96.9% | 
 | Scenario 3 | MUNet | 672×376 | 14.2 | 202.7 | 88.41 | 34279 | 86.0% | 97.8% | 
-| Scenario 3 | CS-Net | 672×376 | 17.9M | 151.3G | 145.35 | 4840 | **88.7%** | **98.4%** | 
+| Scenario 3 | CS-Net | 672×376 | 17.9 | 151.3 | 145.35 | 4840 | **88.7%** | **98.4%** | 
 
 
 ![Scenario3](figures/Scenario3.png)
@@ -87,14 +87,14 @@ Segmentation results for all models in scenario 3.
 Segmentation results for all models in scenario 4.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
-| Scenario 4 | U-Net | 512×512 | **13.4M** | **124.5G** | 153.70 | 34426 | 76.1% | 91.3% |
-| Scenario 4 | DeepLab v3+ | 512×512 | 14.8M | 295.9G | 139.24 | 34384 | 75.8% | 91.4% | 
-| Scenario 4 | SegNet | 512×512 | 31.9M | 174.9G | 142.25 | 34403 | 74.8% | 91.5% | 
+| Scenario 4 | U-Net | 512×512 | **13.4** | **124.5** | 153.70 | 34426 | 76.1% | 91.3% |
+| Scenario 4 | DeepLab v3+ | 512×512 | 14.8 | 295.9 | 139.24 | 34384 | 75.8% | 91.4% | 
+| Scenario 4 | SegNet | 512×512 | 31.9 | 174.9 | 142.25 | 34403 | 74.8% | 91.5% | 
 | Scenario 4 | Segmenter | 512×512 | 25.0 | 409.4 | 4.57 | 37215 | 41.8% | 83.5% | 
 | Scenario 4 | Segformer | 512×512 | 18.5 | 173.1 | 0.08 | 34058 | 57.0% | 83.5% | 
 | Scenario 4 | CPU-Net | 512×512 | 21.8 | 132.1 | 72.39 | 34512 | 72.9% | 89.9% | 
-| Scenario 4 | MUNet | 512×512 | 14.2M | 210.4 | 87.66 | 34311 | 75.4% | 89.9% | 
-| Scenario 4 | CS-Net | 512×512 | 17.9M | 157.1G | 124.71 | 5015 | **81.4%** | **93.9%** | 
+| Scenario 4 | MUNet | 512×512 | 14.2 | 210.4 | 87.66 | 34311 | 75.4% | 89.9% | 
+| Scenario 4 | CS-Net | 512×512 | 17.9 | 157.1 | 124.71 | 5015 | **81.4%** | **93.9%** | 
 
 
 ![Scenario4](figures/Scenario4.png)
@@ -127,24 +127,37 @@ The quantitative results of detail experiments.
 | Baseline 1 | No layernorm | 88.3% | 
 | Model 1-1 | Add LayerNorm to the spatial computation branch | 87.2% | 
 | Model 1-2 | Add LayerNorm to the channel-by-channel computation branch | 89.4% |
-| Model 1-3 | Add LayerNorm to two branches | 89.7% | 
+| Model 1-3 | Add LayerNorm to two branches | **89.7%** | 
 
 ![attention_bias](figures/attention_bias.png)
 
-The results of the ablation experiments.
-| Experiment | Input size | Number head | #params | FLOPs | MIoU | PA |
-| :---: | :---: | :---: | :---: | :---: | :---: | :---: |
-| Baseline+CNN | 512×512 | - | 13.4M | 124.5G | 88.7% | 97.9% |
-| Baseline+SEAB | 512×512 | 2 | 13.6M | 129.3G | 34.6% | 74.9% | 
-| Baseline+SIAB | 512×512 | 2 |**11.8M** | **111.4G** | 88.0% | 97.3% | 
-| Baseline+CNN+SEAB | 512×512 | 2 | 19.7M | 175.1G | 49.9% | 81.7% | 
-| Baseline+CNN+SIAB | 512×512 | 2 | 17.9M | 157.1G | **89.7%** | **98.1%** |
+### ablation experiments
+**To learn more detail please read our paper**.
 
-The results of semantic segmentation.
-![cross-dataset](figures/cross-dataset.png)
+The results of the block ablation experiments.
+| Model | CNN | SIAB | FFN | SEAB | Num_head | Patch size | #params(M) | GFLOPs | MIoU(%) |
+| :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: | :---: |
+| Model 2-1 | √ | - | - | - | - | - | 12.4 | 119.8 | 88.2 |
+| Model 2-2  | - | √ | √ | - | 2 | - | **11.8** | **111.4** | 88.0 |
+| Model 2-3  | √ | √ | √ | - | 2 | - | 17.9 | 157.1 | **89.7** |
+| Model 2-4  | √ | √ | - | - | 2 | - | 13.0 | 120.2 | 87.0 |
+| Model 2-5  | - | - | √ | √ | 2 | 16 | 13.6 | 129.3 | 34.6 |
+| Model 2-6  | √ | - | √ | √ | 2 | 16 | 19.7 | 175.1 | 49.9 |
+| Model 2-7  | √ | - | - | √ | 2 | 16 | 14.8 | 138.2 | 59.5 |
 
-Visualization of the model output at different stages in the ablation experiment.
-![ablationexperiments](figures/ablationexperiments.png)
+
+![ablation](figures/ablation.png)
+
+### branch ablation experiments
+**To learn more detail please read our paper**.
+
+The results of the branch ablation experiments.
+
+| Model | Channel-by-channel computation branch | Spatial computation branch | #params(M) | GFLOPs | MIoU(%) |
+| :---: | :---: | :---: | :---: | :---: | :---: | 
+| Model 3-1 | √ | - | 17.9 | 117.8 | 46.9 |
+| Model 3-2  | - | √ | 17.3 | 157.1 | 89.0 |
+| baseline 3  | √ | √ | 17.9 | 157.1 | **89.7** |
 
 
 ## Requirements
