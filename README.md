@@ -36,8 +36,10 @@ CS-Net extracts the global representation and local features of the input image 
 
 ## Results
 **To learn more detail please read our paper**.
-
+### Comparison experiments
 The quantitative comparison between models that have been applied more frequently in agricultural semantic segmentation and the proposed model.
+
+
 Segmentation results for all models in scenario 1. Throughput was obtained on RTX 4090 GPU.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
@@ -85,18 +87,49 @@ Segmentation results for all models in scenario 3.
 Segmentation results for all models in scenario 4.
 | Test  | Model | Input size | #params(M) | FLOPs(G) |  Throughput(Image/s) | Memory usage(M) | MIoU | PA |
 | :---: | :---: | :---: | :---: | :---: | :---: | :---: |  :---: | :---: |
-| Scenario 1 | U-Net | 512×512 | **13.4M** | **124.5G** | 153.70 | 34426 | 76.1% | 91.3% |
-| Scenario 1 | DeepLab v3+ | 512×512 | 14.8M | 295.9G | 139.24 | 34384 | 75.8% | 91.4% | 
-| Scenario 1 | SegNet | 512×512 | 31.9M | 174.9G | 142.25 | 34403 | 74.8% | 91.5% | 
-| Scenario 1 | Segmenter | 512×512 | 25.0 | 409.4 | 4.57 | 37215 | 41.8% | 83.5% | 
-| Scenario 1 | Segformer | 512×512 | 18.5 | 173.1 | 0.08 | 34058 | 57.0% | 83.5% | 
-| Scenario 1 | CPU-Net | 512×512 | 21.8 | 132.1 | 72.39 | 34512 | 72.9% | 89.9% | 
-| Scenario 1 | MUNet | 512×512 | 14.2M | 210.4 | 87.66 | 34311 | 75.4% | 89.9% | 
-| Scenario 1 | CS-Net | 512×512 | 17.9M | 157.1G | 124.71 | 5015 | **81.4%** | **93.9%** | 
+| Scenario 4 | U-Net | 512×512 | **13.4M** | **124.5G** | 153.70 | 34426 | 76.1% | 91.3% |
+| Scenario 4 | DeepLab v3+ | 512×512 | 14.8M | 295.9G | 139.24 | 34384 | 75.8% | 91.4% | 
+| Scenario 4 | SegNet | 512×512 | 31.9M | 174.9G | 142.25 | 34403 | 74.8% | 91.5% | 
+| Scenario 4 | Segmenter | 512×512 | 25.0 | 409.4 | 4.57 | 37215 | 41.8% | 83.5% | 
+| Scenario 4 | Segformer | 512×512 | 18.5 | 173.1 | 0.08 | 34058 | 57.0% | 83.5% | 
+| Scenario 4 | CPU-Net | 512×512 | 21.8 | 132.1 | 72.39 | 34512 | 72.9% | 89.9% | 
+| Scenario 4 | MUNet | 512×512 | 14.2M | 210.4 | 87.66 | 34311 | 75.4% | 89.9% | 
+| Scenario 4 | CS-Net | 512×512 | 17.9M | 157.1G | 124.71 | 5015 | **81.4%** | **93.9%** | 
 
 
 ![Scenario4](figures/Scenario4.png)
 
+### Cross-dataset evaluation
+**To learn more detail please read our paper**.
+
+Cross-datasets evaluation results for all control models in scenario 4.
+
+| Model | Input size | MIoU | PA |
+| :---: | :---: | :---: | :---: |
+| U-Net | 512×512 | 76.2% | 95.1% |
+| DeepLab v3+ | 512×512 | 75.2% | 94.8% | 
+| SegNet | 512×512 | 75.4% | 95.9% | 
+| Segmenter | 512×512 | 44.9% | 89.8% | 
+| Segformer | 512×512 | 67.5% | 89.9% | 
+| CPU-Net | 512×512 | 57.3% | 91.7% | 
+| MUNet | 512×512 | 76.3% | 95.6% | 
+| CS-Net | 512×512 | **79.3%** | **96.5%** | 
+
+![cross_dataset](figures/cross_dataset.png)
+
+### Detail experiments
+**To learn more detail please read our paper**.
+
+The quantitative results of detail experiments.
+
+| Model | Weight Strategy | MIoU |
+| :---: | :---: | :---: | 
+| Baseline 1 | No layernorm | 88.3% | 
+| Model 1-1 | Add LayerNorm to the spatial computation branch | 87.2% | 
+| Model 1-2 | Add LayerNorm to the channel-by-channel computation branch | 89.4% |
+| Model 1-3 | Add LayerNorm to two branches | 89.7% | 
+
+![attention_bias](figures/attention_bias.png)
 
 The results of the ablation experiments.
 | Experiment | Input size | Number head | #params | FLOPs | MIoU | PA |
@@ -108,7 +141,7 @@ The results of the ablation experiments.
 | Baseline+CNN+SIAB | 512×512 | 2 | 17.9M | 157.1G | **89.7%** | **98.1%** |
 
 The results of semantic segmentation.
-![results](figures/results.png)
+![cross-dataset](figures/cross-dataset.png)
 
 Visualization of the model output at different stages in the ablation experiment.
 ![ablationexperiments](figures/ablationexperiments.png)
