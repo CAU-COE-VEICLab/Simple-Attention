@@ -86,8 +86,6 @@ def do_test(mode, args):
         predict_images(net, args, dst_size=(512, 512), save_dir=args.save_dir)
 
 
-
-
 def do_search(args, task=0):
     args.pt_root = './Result'
     pt_dirs = []

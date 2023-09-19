@@ -19,6 +19,16 @@ from collections import namedtuple
 import torch.utils.data as data
 import torch.nn.functional as F
 
+def miouandpa(config, output, target):
+    target = target.squeeze(1)
+    pa, miou = None, None
+
+    metric = SegmentationMetric(config.out_channels)
+    metric.update(output, target)
+    pa, miou = metric.get_multigpu()
+
+    return miou, pa
+
 def predict_one_image(net, out_channels, batch_data, batch_label):
     if batch_label is None:
         batch_label = torch.randn(batch_data.shape[0], out_channels, batch_data.shape[2], batch_data.shape[3])
@@ -192,6 +202,7 @@ def predict_images(net, args, dst_size=(512, 512), save_dir=None):
 
 
 
+
 def feature_vis_mean(outshape, feats, savedir, iter):
     output_shape = outshape
     channel_mean = feats  # channel_max,_ = torch.max(feats,dim=1,keepdim=True)
@@ -217,32 +228,80 @@ def feature_vis_max(outshape, feats, savedir, iter):
     channel_mean = cv2.applyColorMap(channel_mean, cv2.COLORMAP_JET)
     cv2.imwrite(savedir + '/{}.png'.format(iter), channel_mean)
 
-
 def predict_Attention_images(net, args, dst_size=(512, 512), save_dir=None, model_name=None):
     if not args.test_images:
         print('Test image path is not specific!')
         return
+    save_dir = os.path.join(save_dir, model_name)
     if save_dir is not None:
         if not os.path.exists(save_dir):
             os.makedirs(save_dir)
+
+    creat_dir = os.path.join(save_dir, "outc")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+    creat_dir = os.path.join(save_dir, "inc")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+    creat_dir = os.path.join(save_dir, "down1")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+    creat_dir = os.path.join(save_dir, "down2")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+    creat_dir = os.path.join(save_dir, "down3")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+    creat_dir = os.path.join(save_dir, "down4")
+    if creat_dir is not None:
+        if not os.path.exists(creat_dir):
+            os.makedirs(creat_dir)
+
     pred_dicts = []
     times = []
     paths = [i for i in Path(args.test_images).glob('*.jpg')]
+    filename = 'outc'
+    # search [inc down1 down2 down3 down4 outc]
+    if filename == 'down4':
+        outshape = (32,32)
+        save_dir = os.path.join(save_dir, filename)
+    elif filename == 'down3':
+        outshape = (64,64)
+        save_dir = os.path.join(save_dir, filename)
+    elif filename == 'down2':
+        outshape = (128,128)
+        save_dir = os.path.join(save_dir, filename)
+    elif filename == 'down1':
+        outshape = (256,256)
+        save_dir = os.path.join(save_dir, filename)
+    elif filename == 'inc':
+        outshape = (512,512)
+        save_dir = os.path.join(save_dir, filename)
+    else:
+        outshape = (512, 512)
+        save_dir = os.path.join(save_dir, filename)
     for path in paths:
         name = path.name.split('.')
         frame = cv2.imread(str(path))
         start = time.time()
-        # print(name[0])
-        print()
-
         img_transform = transforms.Compose(
             [transforms.ToPILImage(), transforms.Resize((args.height, args.width)), transforms.ToTensor()])
         img_tensor = img_transform(frame).unsqueeze(0)
-        # -----------------------------------------------------output result-----------------------------------------------------
-        prediction_max, prediction_mean = predict_one_image(net=net, out_channels=args.out_channels, batch_data=img_tensor, batch_label=None)
-        feature_vis_mean(outshape=(512, 512),feats=prediction_mean, savedir=args.save_dir, iter=model_name+'mean_out'+ name[0])
 
-        # # -----------------------------------------------------one layer result-----------------------------------------------------
-        # prediction_layer_max, prediction_layer_mean = predict_one_image_for_one_layer(layer_name='down4', net=net, out_channels=args.out_channels,
-        #                                                     batch_data=img_tensor, batch_label=None)
-        # feature_vis_mean(outshape=(32, 32),feats=prediction_layer_mean, savedir=args.save_dir, iter=model_name+'mean_down4cnn'+ name[0])
+        if filename == 'outc':
+            prediction_max, prediction_mean = predict_one_image(net=net, out_channels=args.out_channels, batch_data=img_tensor, batch_label=None)
+            feature_vis_max(outshape=outshape, feats=prediction_max, savedir=save_dir,
+                             iter=model_name + 'max_out' + name[0])
+            feature_vis_mean(outshape=outshape,feats=prediction_mean, savedir=save_dir, iter=model_name+'mean_out' + name[0])
+
+        else:
+            prediction_layer_max, prediction_layer_mean = predict_one_image_for_one_layer(layer_name=filename, net=net, out_channels=args.out_channels,
+                                                                batch_data=img_tensor, batch_label=None)
+            feature_vis_max(outshape=outshape, feats=prediction_layer_max, savedir=save_dir,
+                             iter=model_name + "max" + filename + name[0])
+            feature_vis_mean(outshape=outshape,feats=prediction_layer_mean, savedir=save_dir, iter=model_name + "min" +filename + name[0])

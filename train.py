@@ -87,10 +87,10 @@ def train(args):
         net.train()
         for batch_id, (batch_data, batch_label) in enumerate(train_dataloader):
             if args.out_channels == 1:
-                batch_label = batch_label.float()  # 逻辑损失需要label的类型和data相同，均为float，而不是long
+                batch_label = batch_label.float()
             else:
-                batch_label = batch_label.squeeze(1)  # 交叉熵label的类型采用默认的long，但需要去除C通道维
-            # print(batch_data.shape, batch_label.shape)
+                batch_label = batch_label.squeeze(1)
+
             iter_cnt += 1
             output = net(batch_data.cuda())
             loss = train_criterion(output, batch_label.cuda())
@@ -167,8 +167,8 @@ def search_train(args):
     args.epoch = 120
     args.batch_size = 2
     args.gpu = 0
-    # train_net_names only support ['CNNSampleAttention', 'SampleAttention']
-    train_net_names = ['CNNSampleAttention']
+    # train_net_names only support ['CNNSimpleAttention', 'SimpleAttention', 'cpunet', 'munet']
+    train_net_names = ['CNNSimpleAttention']
     save_suffix = 'aug'
     task = 0
     args, sizes, erodes, weightings = get_choices(args, task=task)

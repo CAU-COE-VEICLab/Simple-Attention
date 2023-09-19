@@ -1,5 +1,7 @@
 
 from Nets.CSNet import CSNet
+from Nets.munet import MUNet
+from Nets.cpunet import CPUNet
 
 
 import torch
@@ -36,9 +38,13 @@ def get_criterion(out_channels, class_weights=None):
 
 
 def choose_net(name, out_channels):
-    if name == 'CNNSampleAttention':
-        return CSNet(n_classes=out_channels, num_heads=2, drop_path_rate=0.1,choice='CNNSampleAttention', patch_size=16)
-    elif name == 'SampleAttention':
-        return CSNet(n_classes=out_channels, num_heads=2, drop_path_rate=0.1,choice='SampleAttention', patch_size=16)
+    if name == 'CNNSimpleAttention':
+        return CSNet(n_classes=out_channels, num_heads=2, drop_path_rate=0.1,choice='CNNSimpleAttention', patch_size=16)
+    elif name == 'SimpleAttention':
+        return CSNet(n_classes=out_channels, num_heads=2, drop_path_rate=0.1,choice='SimpleAttention', patch_size=16)
+    elif name == 'munet':
+        return MUNet(n_classes=out_channels, drop_path_rate=0.1)
+    elif name == 'cpunet':
+        return CPUNet(n_classes=out_channels, drop_path_rate=0.1)
 
 
