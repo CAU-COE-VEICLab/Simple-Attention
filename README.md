@@ -1,5 +1,5 @@
 # Simple-Attention
-This is the code base for **`"CS-Net: Conv-Simpleformer Network for agricultural image segmentation"`**
+This is the code base for **`"CS-Net: Conv-Simpleformer Network for agricultural image segmentation"`**, and the article is published in **`Pattern Recognition`**.
 
 ## Abstract
 Incomplete sensor networks and long image acquisition cycles in agriculture cause inferior quality of agricultural datasets, limiting traditional Transformer models' effectiveness. 
