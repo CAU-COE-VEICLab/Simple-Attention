@@ -180,3 +180,12 @@ python -m torch.distributed.launch --nproc_per_node=1 train_linux.py
 Note that main_linux.py only supports single-machine, single-card training.
 
 ## Citation
+@article{liu2024cs,
+  title={CS-net: Conv-simpleformer network for agricultural image segmentation},
+  author={Liu, Lei and Li, Guorun and Du, Yuefeng and Li, Xiaoyu and Wu, Xiuheng and Qiao, Zhi and Wang, Tianyi},
+  journal={Pattern Recognition},
+  volume={147},
+  pages={110140},
+  year={2024},
+  publisher={Elsevier}
+}
